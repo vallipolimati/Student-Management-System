@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Marks Entry - Sri Vasavi NBA Engineering College</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            display: flex;
+            min-height: 100vh;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            width: 80px;
+            background-color: #003366;
+            color: white;
+            height: 100vh;
+            position: fixed;
+            transition: all 0.3s;
+            overflow-y: auto;
+        }
+        
+        .sidebar-menu {
+            padding: 20px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .sidebar-menu a {
+            display: block;
+            padding: 15px;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        
+        .sidebar-menu a:hover, .sidebar-menu a.active {
+            background-color: #004080;
+        }
+        
+        .sidebar-menu a i {
+            font-size: 20px;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .sidebar-menu a span {
+            font-size: 12px;
+        }
+        
+        /* Main Content */
+        .main-content {
+            margin-left: 80px;
+            width: calc(100% - 80px);
+            padding: 20px;
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        
+        .user-info {
+            display: flex;
+            align-items: center;
+        }
+        
+        .user-info img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        
+        /* Content */
+        .content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .page-title {
+            margin-bottom: 20px;
+            color: #003366;
+            border-bottom: 2px solid #003366;
+            padding-bottom: 10px;
+        }
+        
+        /* Marks Entry Form */
+        .marks-form {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #003366;
+        }
+        
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            background-color: #003366;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #004080;
+        }
+        
+        /* Semester Tabs */
+        .semester-tabs {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+            flex-wrap: wrap;
+        }
+        
+        .semester-tab {
+            padding: 10px 15px;
+            cursor: pointer;
+            background-color: #f1f1f1;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            border-radius: 5px 5px 0 0;
+        }
+        
+        .semester-tab.active {
+            background-color: #003366;
+            color: white;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 60px;
+            }
+            
+            .main-content {
+                margin-left: 60px;
+                width: calc(100% - 60px);
+            }
+            
+            .sidebar-menu a span {
+                display: none;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-menu">
+            <a href="#" class="active" title="Marks Entry">
+                <i class="fas fa-edit"></i>
+                <span>Marks</span>
+            </a>
+            <a href="login.html" title="Logout">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </a>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="header">
+            <h2>Admin Marks Entry</h2>
+            <div class="user-info">
+                <img src="https://via.placeholder.com/40" alt="User">
+                <span>Admin</span>
+            </div>
+        </div>
+        
+        <div class="content">
+            <h2 class="page-title">Enter Student Marks</h2>
+            
+            <div class="semester-tabs">
+                <div class="semester-tab active">Semester 1</div>
+                <div class="semester-tab">Semester 2</div>
+                <div class="semester-tab">Semester 3</div>
+                <div class="semester-tab">Semester 4</div>
+                <div class="semester-tab">Semester 5</div>
+                <div class="semester-tab">Semester 6</div>
+                <div class="semester-tab">Semester 7</div>
+                <div class="semester-tab">Semester 8</div>
+            </div>
+            
+            <div class="marks-form">
+                <form id="marksEntryForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="studentId">Student ID</label>
+                            <input type="text" id="studentId" name="studentId" placeholder="Enter Student ID (e.g., 22A81A05B4)" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="studentName">Student Name</label>
+                            <input type="text" id="studentName" name="studentName" placeholder="Will auto-fill" readonly>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Subjects</label>
+                        <div id="subjectsContainer">
+                            <!-- Subjects will be dynamically added here based on semester -->
+                            <div class="form-row subject-row">
+                                <div class="form-group">
+                                    <input type="text" name="subjectName[]" placeholder="Subject Name" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="number" name="subjectMarks[]" min="0" max="100" placeholder="Marks (0-100)" required>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" id="addSubject" class="btn" style="margin-top: 10px; background-color: #28a745;">
+                            <i class="fas fa-plus"></i> Add Subject
+                        </button>
+                    </div>
+                    
+                    <button type="submit" class="btn">Save Marks</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sample data - in real app this would come from a database
+        const studentDatabase = {
+            '22A81A05B4': { name: 'Rahul Sharma', branch: 'CSE' },
+            '22A81A0546': { name: 'Priya Patel', branch: 'ECE' },
+            '22A81A0589': { name: 'Amit Kumar', branch: 'EEE' }
+        };
+        
+        // Semester-wise subjects - in real app this would come from a database
+        const semesterSubjects = {
+            1: ['Mathematics I', 'Physics', 'Chemistry', 'Programming in C', 'English'],
+            2: ['Mathematics II', 'Basic Electrical', 'Engineering Drawing', 'Data Structures', 'Environmental Science'],
+            // ... add subjects for other semesters
+        };
+        
+        // Get current semester from active tab
+        function getCurrentSemester() {
+            const activeTab = document.querySelector('.semester-tab.active');
+            return parseInt(activeTab.textContent.replace('Semester ', ''));
+        }
+        
+        // Load subjects for the selected semester
+        function loadSubjectsForSemester(semester) {
+            const container = document.getElementById('subjectsContainer');
+            container.innerHTML = '';
+            
+            const subjects = semesterSubjects[semester] || ['Subject 1', 'Subject 2', 'Subject 3'];
+            
+            subjects.forEach(subject => {
+                const row = document.createElement('div');
+                row.className = 'form-row subject-row';
+                row.innerHTML = `
+                    <div class="form-group">
+                        <input type="text" name="subjectName[]" value="${subject}" placeholder="Subject Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" name="subjectMarks[]" min="0" max="100" placeholder="Marks (0-100)" required>
+                    </div>
+                `;
+                container.appendChild(row);
+            });
+        }
+        
+        // Semester tab switching
+        const tabs = document.querySelectorAll('.semester-tab');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                tabs.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                loadSubjectsForSemester(getCurrentSemester());
+            });
+        });
+        
+        // Auto-fill student name when ID is entered
+        document.getElementById('studentId').addEventListener('blur', function() {
+            const studentId = this.value.trim().toUpperCase();
+            const studentNameField = document.getElementById('studentName');
+            
+            if(studentDatabase[studentId]) {
+                studentNameField.value = studentDatabase[studentId].name;
+            } else {
+                studentNameField.value = '';
+                if(studentId) alert('Student ID not found in database');
+            }
+        });
+        
+        // Add subject button
+        document.getElementById('addSubject').addEventListener('click', function() {
+            const container = document.getElementById('subjectsContainer');
+            const row = document.createElement('div');
+            row.className = 'form-row subject-row';
+            row.innerHTML = `
+                <div class="form-group">
+                    <input type="text" name="subjectName[]" placeholder="Subject Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="number" name="subjectMarks[]" min="0" max="100" placeholder="Marks (0-100)" required>
+                </div>
+                <div class="form-group">
+                    <button type="button" class="btn remove-subject" style="background-color: #dc3545;">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            `;
+            container.appendChild(row);
+            
+            // Add event listener to remove button
+            row.querySelector('.remove-subject').addEventListener('click', function() {
+                container.removeChild(row);
+            });
+        });
+        
+        // Form submission
+        document.getElementById('marksEntryForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const studentId = document.getElementById('studentId').value.trim();
+            const semester = getCurrentSemester();
+            
+            if(!studentId) {
+                alert('Please enter a valid Student ID');
+                return;
+            }
+            
+            // Collect marks data
+            const marksData = {
+                studentId: studentId,
+                semester: semester,
+                subjects: []
+            };
+            
+            const subjectNames = document.getElementsByName('subjectName[]');
+            const subjectMarks = document.getElementsByName('subjectMarks[]');
+            
+            for(let i = 0; i < subjectNames.length; i++) {
+                marksData.subjects.push({
+                    name: subjectNames[i].value,
+                    marks: subjectMarks[i].value
+                });
+            }
+            
+            // In a real app, you would send this data to the server
+            console.log('Marks data to be saved:', marksData);
+            alert(`Marks saved successfully for ${document.getElementById('studentName').value} (Semester ${semester})`);
+            
+            // Reset form
+            this.reset();
+            loadSubjectsForSemester(semester);
+        });
+        
+        // Initialize with first semester subjects
+        loadSubjectsForSemester(1);
+    </script>
+</body>
+</html>

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sri Vasavi NBA Engineering College</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #F5F9FA;
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        /* Section 1: Top Bar with Logo and Login */
+        .top-bar {
+            background-color: #42B2CD;
+            color: #2A4E55;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            width: 70%;
+        }
+        
+        .logo {
+            height: 90px;
+            margin-right: 20px;
+            border-radius: 8px;
+        }
+        
+        .college-name {
+            text-align: center;
+            flex-grow: 1;
+        }
+        
+        .college-name h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.3rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #800000; /* Changed to maroon */
+        }
+        
+        .college-name h2 {
+            font-size: 1rem;
+            font-weight: normal;
+            margin-bottom: 0.2rem;
+            color: #2A4E55;
+        }
+        
+        .college-name h3 {
+            font-size: 0.9rem;
+            font-weight: normal;
+            font-style: italic;
+            color: #2A4E55;
+        }
+        
+        .auth-buttons a {
+            color: white;
+            text-decoration: none;
+            margin-left: 15px;
+            padding: 8px 15px;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        
+        .auth-buttons a.login {
+            background-color: #8CC5D0;
+        }
+        
+        .auth-buttons a.register {
+            background-color: #6BB0BD;
+        }
+        
+        .auth-buttons a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        /* Section 2: Navigation */
+        .navigation {
+            background-color: #7DC9DD;
+            padding: 0.8rem 2rem;
+            display: flex;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .navigation a {
+            color: #1A3A40;
+            text-decoration: none;
+            margin: 0 20px;
+            padding: 5px 0;
+            position: relative;
+            font-weight: bold;
+        }
+        
+        .navigation a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #1A3A40;
+            transition: width 0.3s;
+        }
+        
+        .navigation a:hover:after {
+            width: 100%;
+        }
+        
+        /* Section 3: Hero with Quote and Gallery */
+        .hero-section {
+            display: flex;
+            flex: 1;
+            min-height: calc(100vh - 150px);
+            background-color: #A4DCF2;
+        }
+        
+        .quote-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 2rem 3rem;
+            background-color: #E0F0F3;
+        }
+        
+        .quote-section h2 {
+            font-size: 2.5rem;
+            color: #1A3A40;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+        
+        .quote-section p {
+            font-size: 1.1rem;
+            color: #2A4E55;
+            font-style: italic;
+        }
+        
+        .gallery-section {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .slider {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        .slide.active {
+            opacity: 1;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #7DC9DD;
+            color: #1A3A40;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: auto;
+            box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .top-bar {
+                flex-direction: column;
+                text-align: center;
+                padding: 1rem;
+            }
+            
+            .logo-container {
+                flex-direction: column;
+                width: 100%;
+                align-items: center;
+            }
+            
+            .logo {
+                height: 80px;
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            .college-name {
+                margin-bottom: 15px;
+            }
+            
+            .college-name h1 {
+                font-size: 1.5rem;
+            }
+            
+            .college-name h2 {
+                font-size: 0.9rem;
+            }
+            
+            .college-name h3 {
+                font-size: 0.8rem;
+            }
+            
+            .auth-buttons {
+                margin-top: 1rem;
+            }
+            
+            .navigation {
+                flex-wrap: wrap;
+            }
+            
+            .navigation a {
+                margin: 5px 10px;
+            }
+            
+            .hero-section {
+                flex-direction: column;
+                min-height: auto;
+            }
+            
+            .quote-section {
+                padding: 2rem;
+            }
+            
+            .gallery-section {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Section 1: Top Bar with Logo and Login -->
+    <div class="top-bar">
+        <div class="logo-container">
+            <img src="images/college logo.jpg" alt="College Logo" class="logo">
+            <div class="college-name">
+                <h1>SRI VASAVI ENGINEERING COLLEGE</h1>
+                <h2>(PEDATADEPALLI, TADEPALLIGUDEM) (AUTONOMOUS)</h2>
+                <h3>Approved by AICTE, New Delhi and Permanently Affiliated to JNTUK, Kakinada</h3>
+            </div>
+        </div>
+        
+        <div class="auth-buttons">
+            <a href="login.html" class="login">Login</a>
+            <a href="register.html" class="register">Register</a>
+        </div>
+    </div>
+    
+    <!-- Section 2: Navigation -->
+    <div class="navigation">
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact Us</a>
+        <a href="#courses">Courses</a>
+    </div>
+    
+    <!-- Section 3: Hero with Quote and Gallery -->
+    <div class="hero-section">
+        <div class="quote-section">
+            <h2>Design your journey of discovery</h2>
+            <p>"Education is the most powerful weapon which you can use to change the world."</p>
+        </div>
+        
+        <div class="gallery-section">
+            <div class="slider">
+                <div class="slide active" style="background-image: url('images/college-1.jpg');"></div>
+                <div class="slide" style="background-image: url('images/college-2.jpg');"></div>
+                <div class="slide" style="background-image: url('images/college-3.jpg');"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Sri Vasavi NBA Engineering College (Autonomous). All Rights Reserved.</p>
+        <p>Address: College Road, Pedatadepalli, Tadepalligudem, Andhra Pradesh 534101</p>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Navigation link functionality
+            document.querySelectorAll('.navigation a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId !== '#') {
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            targetElement.scrollIntoView({
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+            
+            // Image slider functionality
+            const slides = document.querySelectorAll('.slide');
+            if (slides.length > 0) {
+                let currentSlide = 0;
+                
+                function nextSlide() {
+                    slides[currentSlide].classList.remove('active');
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    slides[currentSlide].classList.add('active');
+                }
+                
+                // Change slide every 2 seconds
+                setInterval(nextSlide, 2000);
+                
+                // Also allow manual navigation with click
+                document.querySelector('.slider').addEventListener('click', nextSlide);
+            }
+        });
+    </script>
+</body>
+</html>
